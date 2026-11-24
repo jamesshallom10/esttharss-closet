@@ -1,80 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Estharss Closet — fashion, beauty and pretty little things.">
-<title>Estharss Closet | Your Pretty Little Boutique</title>
-<style>
-:root{--pink:#f6c7d9;--rose:#b6537d;--deep:#71334f;--cream:#fff9fb;--ink:#493541;--muted:#896f7b;--line:#f0dce5}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,sans-serif}
-button,input{font:inherit}button{cursor:pointer}.announcement{background:#7c3e5a;color:white;text-align:center;padding:10px;font-size:12px;letter-spacing:1.5px}
-header{position:sticky;top:0;z-index:5;background:#fffafcdd;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav{max-width:1180px;margin:auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{font-family:Georgia,serif;font-size:27px;color:var(--rose);font-style:italic;text-decoration:none}.logo small{display:block;font:10px Arial;letter-spacing:3px;text-align:center;color:var(--muted);font-style:normal;margin-top:3px}
-nav{display:flex;gap:24px}nav a{color:var(--deep);text-decoration:none;font-size:13px}nav a:hover{color:var(--rose)}
-.actions{display:flex;gap:10px;align-items:center}.iconbtn,.menu{border:1px solid var(--line);background:white;border-radius:30px;padding:10px 14px;color:var(--deep)}
-.menu{display:none}.hero{max-width:1180px;margin:28px auto 0;padding:0 24px}.hero-inner{min-height:430px;border-radius:8px;overflow:hidden;display:grid;grid-template-columns:1.05fr .95fr;background:linear-gradient(120deg,#fbe3ec,#f7c8da)}
-.hero-copy{padding:70px 8%;display:flex;flex-direction:column;justify-content:center}.eyebrow{font-size:11px;letter-spacing:3px;color:var(--rose);text-transform:uppercase}.hero h1{font:clamp(42px,6vw,76px)/.98 Georgia,serif;color:#783b57;margin:18px 0}.hero p{max-width:390px;line-height:1.8;color:#765968}.primary{border:0;background:#853e60;color:white;padding:14px 24px;border-radius:3px;letter-spacing:1px;font-size:12px;text-transform:uppercase;width:max-content;margin-top:16px}.primary:hover{background:#612b45}
-.hero-art{min-height:360px;background:linear-gradient(#e9b7c9aa,#e9b7c9aa),url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1100&q=85') center 35%/cover}
-.section{max-width:1180px;margin:75px auto;padding:0 24px}.section-head{text-align:center;margin-bottom:30px}.section-head span{color:var(--rose);letter-spacing:3px;font-size:10px;text-transform:uppercase}.section-head h2{font:38px Georgia,serif;color:#783b57;margin:10px 0}.section-head p{color:var(--muted);font-size:13px}
-.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:13px}.cat{border:0;background:#f8e7ee;padding:0 0 15px;color:var(--deep);font:16px Georgia,serif}.cat img{width:100%;height:150px;object-fit:cover;display:block;margin-bottom:13px;transition:.3s}.cat:hover img{filter:saturate(1.15);transform:translateY(-3px)}
-.toolbar{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-bottom:22px}.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{background:white;border:1px solid var(--line);color:var(--deep);padding:9px 14px;border-radius:30px;font-size:12px}.filter.active,.filter:hover{background:#853e60;color:white;border-color:#853e60}.search{border:1px solid var(--line);background:white;padding:11px 14px;border-radius:30px;min-width:210px;outline-color:var(--pink)}
-.products{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.product{background:white;padding:10px;border:1px solid #f4e7ed;position:relative}.product img{width:100%;aspect-ratio:3/4;object-fit:cover;background:#f7e9ef}.tag{position:absolute;top:18px;left:18px;background:#fff7fa;color:var(--rose);font-size:10px;padding:7px 9px}.product h3{font:18px Georgia,serif;margin:12px 0 5px;color:#71334f}.product .desc{font-size:11px;color:var(--muted);min-height:28px}.price{color:var(--rose);font-weight:bold;font-size:14px}.add{width:100%;padding:11px;margin-top:12px;border:1px solid #853e60;background:white;color:#853e60;font-size:11px;letter-spacing:1px;text-transform:uppercase}.add:hover{background:#853e60;color:white}
-.banner{background:#f5dce6;text-align:center;padding:48px 20px}.banner h2{font:34px Georgia,serif;color:#783b57;margin:0 0 10px}.banner p{color:#765968;font-size:13px}
-footer{background:#67354e;color:#fff4f8;padding:45px 24px;text-align:center}footer .logo{color:#ffe0ec}footer p{font-size:12px;line-height:1.8;color:#f2d8e3}
-.overlay{display:none;position:fixed;inset:0;background:#28121d77;z-index:9}.overlay.show{display:block}.drawer{position:absolute;right:0;top:0;height:100%;width:min(430px,100%);background:#fffafd;padding:24px;overflow:auto}.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:15px}.drawer h2{font:28px Georgia,serif;color:var(--deep)}.close{border:0;background:none;font-size:25px;color:var(--deep)}.cartline{display:flex;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}.cartline img{width:75px;height:90px;object-fit:cover}.cartline strong{font:16px Georgia,serif}.qty{display:flex;align-items:center;gap:10px;margin-top:9px}.qty button{border:1px solid var(--line);background:white;padding:4px 9px}.total{display:flex;justify-content:space-between;font-weight:bold;padding:20px 0}.checkout{width:100%;padding:14px;background:#853e60;color:white;border:0;letter-spacing:1px}.note{font-size:11px;color:var(--muted);line-height:1.6}.empty{text-align:center;padding:45px 10px;color:var(--muted)}
-@media(max-width:850px){.categories{grid-template-columns:repeat(3,1fr)}.products{grid-template-columns:repeat(2,1fr)}nav{display:none}.menu{display:block}.hero-inner{grid-template-columns:1fr}.hero-art{min-height:280px;grid-row:1}.hero-copy{padding:40px 8%}.toolbar{align-items:stretch;flex-direction:column}.search{width:100%}}
-@media(max-width:480px){.nav{padding:14px}.logo{font-size:22px}.hero{padding:0 12px}.hero-inner{min-height:0}.hero-art{min-height:230px}.section{padding:0 14px;margin:55px auto}.categories{gap:8px}.cat img{height:105px}.cat{font-size:13px}.products{gap:10px}.product{padding:7px}.product h3{font-size:16px}.actions .iconbtn{padding:9px}.section-head h2{font-size:31px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#783b57">
+  <meta name="description" content="Estharss Closet — lovely fashion, bags, shoes, beauty and accessories.">
+  <title>Estharss Closet | Your Pretty Little Boutique</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink:#f4d8e3; --rose:#b6537d; --deep:#71334f; --wine:#54263d;
+      --cream:#fffafc; --ink:#493541; --muted:#896f7b; --line:#f0dce5;
+      --white:#fff; --shadow:0 14px 40px rgba(93,42,65,.09);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:100px}
+    body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",Arial,sans-serif}
+    button,input{font:inherit}
+    button{cursor:pointer}
+    a{color:inherit}
+    .announcement{background:var(--wine);color:white;text-align:center;padding:10px 15px;font-size:11px;letter-spacing:1.6px}
+    header{position:sticky;top:0;z-index:10;background:rgba(255,250,252,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{max-width:1200px;margin:auto;padding:15px 24px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .logo{font-family:"Playfair Display",Georgia,serif;font-size:27px;font-style:italic;color:var(--rose);text-decoration:none;white-space:nowrap}
+    .logo small{display:block;font:9px "DM Sans",sans-serif;letter-spacing:3px;text-align:center;color:var(--muted);font-style:normal;margin-top:2px}
+    nav{display:flex;align-items:center;gap:25px}
+    nav a{text-decoration:none;color:var(--deep);font-size:13px;font-weight:600}
+    nav a:hover{color:var(--rose)}
+    .actions{display:flex;align-items:center;gap:9px}
+    .iconbtn,.menu{border:1px solid var(--line);background:white;border-radius:30px;padding:10px 14px;color:var(--deep);font-size:13px}
+    .iconbtn:hover,.menu:hover{border-color:var(--rose)}
+    .menu{display:none}
+    .hero{max-width:1200px;margin:28px auto 0;padding:0 24px}
+    .hero-inner{min-height:470px;border-radius:10px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;background:#f7e4ec}
+    .hero-copy{padding:65px 9%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+    .eyebrow,.kicker{font-size:10px;letter-spacing:3px;color:var(--rose);text-transform:uppercase;font-weight:700}
+    .hero h1{font:clamp(43px,6vw,76px)/1.02 "Playfair Display",Georgia,serif;color:#783b57;margin:18px 0}
+    .hero p{max-width:410px;line-height:1.9;color:#765968;font-size:14px}
+    .primary{display:inline-flex;align-items:center;gap:12px;border:0;background:#853e60;color:white;padding:15px 24px;border-radius:3px;letter-spacing:1px;font-size:11px;text-transform:uppercase;font-weight:700;text-decoration:none;margin-top:17px}
+    .primary:hover{background:#612b45}
+    .hero-art{min-height:400px;background:linear-gradient(90deg,rgba(120,59,87,.08),rgba(120,59,87,.02)),url("https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85") center 35%/cover}
+    .benefits{max-width:1152px;margin:22px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .benefit{background:white;border:1px solid var(--line);padding:15px;text-align:center;color:var(--deep);font-size:12px}
+    .benefit strong{display:block;font-family:"Playfair Display",Georgia,serif;font-size:16px;margin-bottom:4px}
+    .section{max-width:1200px;margin:78px auto;padding:0 24px}
+    .section-head{text-align:center;margin-bottom:32px}
+    .section-head h2{font:clamp(30px,4vw,42px) "Playfair Display",Georgia,serif;color:#783b57;margin:10px 0}
+    .section-head p{color:var(--muted);font-size:13px;line-height:1.7}
+    .categories{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+    .cat{border:1px solid var(--line);background:white;padding:0 0 14px;color:var(--deep);font:16px "Playfair Display",Georgia,serif;overflow:hidden}
+    .cat img{width:100%;height:155px;object-fit:cover;display:block;margin-bottom:13px;transition:.35s}
+    .cat:hover img{transform:scale(1.04)}
+    .toolbar{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-bottom:22px}
+    .filters{display:flex;gap:8px;flex-wrap:wrap}
+    .filter{background:white;border:1px solid var(--line);color:var(--deep);padding:9px 14px;border-radius:30px;font-size:11px}
+    .filter.active,.filter:hover{background:#853e60;color:white;border-color:#853e60}
+    .search{border:1px solid var(--line);background:white;padding:11px 15px;border-radius:30px;min-width:220px;outline-color:var(--pink);font-size:12px}
+    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .product{background:white;padding:10px;border:1px solid #f1e3e9;position:relative;transition:.25s}
+    .product:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .product img{width:100%;aspect-ratio:3/4;object-fit:cover;background:#f7e9ef;display:block}
+    .tag{position:absolute;top:18px;left:18px;background:#fff7fa;color:var(--rose);font-size:9px;letter-spacing:1px;padding:7px 9px;font-weight:700}
+    .product h3{font:18px "Playfair Display",Georgia,serif;margin:13px 0 5px;color:#71334f}
+    .desc{font-size:11px;color:var(--muted);min-height:30px;line-height:1.6}
+    .price{color:var(--rose);font-weight:700;font-size:14px;margin-top:7px}
+    .add{width:100%;padding:11px;margin-top:12px;border:1px solid #853e60;background:white;color:#853e60;font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:700}
+    .add:hover{background:#853e60;color:white}
+    .empty-results{text-align:center;color:var(--muted);padding:35px;grid-column:1/-1}
+    .story{background:#f7e5ed;padding:55px 24px;text-align:center}
+    .story h2{font:36px "Playfair Display",Georgia,serif;color:#783b57;margin:0 0 12px}
+    .story p{max-width:620px;margin:auto;color:#765968;font-size:13px;line-height:1.9}
+    .story .primary{margin-top:20px}
+    footer{background:#67354e;color:#fff4f8;padding:45px 24px;text-align:center}
+    footer .logo{color:#ffe0ec}
+    footer p{font-size:12px;line-height:1.9;color:#f2d8e3}
+    footer a{color:#ffe0ec}
+    .overlay{display:none;position:fixed;inset:0;background:#28121d88;z-index:30}
+    .overlay.show{display:block}
+    .drawer{position:absolute;right:0;top:0;height:100%;width:min(440px,100%);background:#fffafd;padding:23px;overflow:auto;box-shadow:-10px 0 35px #28121d22}
+    .drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px}
+    .drawer h2{font:27px "Playfair Display",Georgia,serif;color:var(--deep)}
+    .close{border:0;background:none;font-size:27px;color:var(--deep)}
+    .cartline{display:flex;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+    .cartline img{width:72px;height:88px;object-fit:cover}
+    .cartline strong{font:16px "Playfair Display",Georgia,serif}
+    .qty{display:flex;align-items:center;gap:10px;margin-top:9px;font-size:13px}
+    .qty button{border:1px solid var(--line);background:white;padding:4px 10px;color:var(--deep)}
+    .total{display:flex;justify-content:space-between;font-weight:700;padding:20px 0;border-top:1px solid var(--line);margin-top:12px}
+    .checkout{width:100%;padding:15px;background:#853e60;color:white;border:0;letter-spacing:1px;font-size:11px;font-weight:700}
+    .checkout:hover{background:#612b45}
+    .note{font-size:10px;color:var(--muted);line-height:1.7}
+    .empty{text-align:center;padding:45px 10px;color:var(--muted);font-size:13px}
+    @media(max-width:900px){.categories{grid-template-columns:repeat(3,1fr)}.products{grid-template-columns:repeat(2,1fr)}nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);padding:18px 24px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.menu{display:block}.hero-inner{grid-template-columns:1fr}.hero-art{min-height:330px;grid-row:1}.hero-copy{padding:42px 8%}.toolbar{align-items:stretch;flex-direction:column}.search{width:100%}}
+    @media(max-width:520px){.announcement{font-size:9px}.nav{padding:13px 14px}.logo{font-size:22px}.hero{padding:0 12px}.hero-art{min-height:245px}.hero-copy{padding:35px 7%}.hero h1{font-size:47px}.benefits{padding:0 12px;grid-template-columns:1fr;gap:7px}.section{padding:0 14px;margin:58px auto}.categories{gap:8px}.cat img{height:105px}.cat{font-size:13px}.products{gap:10px}.product{padding:7px}.product h3{font-size:16px}.product .desc{font-size:10px}.filters{gap:6px}.filter{padding:8px 11px}.story h2{font-size:30px}}
+  </style>
 </head>
 <body>
-<div class="announcement">A LITTLE PRETTY, A LOT OF STYLE · WELCOME TO ESTHARSS CLOSET</div>
-<header><div class="nav">
-<a class="logo" href="#">Estharss Closet<small>FASHION · BEAUTY · MORE</small></a>
-<nav><a href="#home">Home</a><a href="#categories">Categories</a><a href="#shop">Shop all</a><a href="#about">Our story</a></nav>
-<div class="actions"><button class="iconbtn" onclick="openCart()">♡ Bag <span id="count">0</span></button><button class="menu" onclick="document.querySelector('nav').style.display=document.querySelector('nav').style.display==='flex'?'none':'flex'">☰</button></div>
-</div></header>
-<main id="home">
-<section class="hero"><div class="hero-inner"><div class="hero-copy"><span class="eyebrow">The pretty things edit</span><h1>Dress like<br>you mean it.</h1><p>Little luxuries, lovely finds and feel-good fashion. Find something that feels like you.</p><button class="primary" onclick="document.querySelector('#shop').scrollIntoView()">Explore the collection →</button></div><div class="hero-art" role="img" aria-label="Fashion boutique editorial"></div></div></section>
-<section class="section" id="categories"><div class="section-head"><span>Find your favourite</span><h2>Shop by category</h2><p>A little something for every version of you.</p></div>
-<div class="categories">
-<button class="cat" onclick="choose('Clothing')"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=500&q=80">Clothing</button>
-<button class="cat" onclick="choose('Bags')"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=80">Bags</button>
-<button class="cat" onclick="choose('Shoes')"><img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=500&q=80">Shoes</button>
-<button class="cat" onclick="choose('Beauty')"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=500&q=80">Beauty</button>
-<button class="cat" onclick="choose('Accessories')"><img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=500&q=80">Accessories</button>
-<button class="cat" onclick="choose('Perfume')"><img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=500&q=80">Perfume</button>
-</div></section>
-<section class="section" id="shop"><div class="section-head"><span>Curated for you</span><h2>The closet edit</h2><p>Browse our sample collection — replace these with your real products and prices.</p></div>
-<div class="toolbar"><div class="filters" id="filters"><button class="filter active" onclick="choose('All')">All</button><button class="filter" onclick="choose('Clothing')">Clothing</button><button class="filter" onclick="choose('Bags')">Bags</button><button class="filter" onclick="choose('Shoes')">Shoes</button><button class="filter" onclick="choose('Beauty')">Beauty</button><button class="filter" onclick="choose('Accessories')">Accessories</button><button class="filter" onclick="choose('Perfume')">Perfume</button></div><input class="search" id="search" placeholder="Search the closet…" oninput="render()"></div>
-<div class="products" id="products"></div>
-</section>
-<section class="banner" id="about"><h2>Pretty looks good on you.</h2><p>Estharss Closet · Your destination for fashion, beauty and lovely little extras.</p></section>
-</main>
-<footer><a class="logo" href="#">Estharss Closet</a><p>Thank you for stopping by our little corner of pretty.<br>For orders and enquiries, contact us on WhatsApp or email.<br><a style="color:#ffe0ec" href="mailto:jamesshallon10@gmail.com">jamesshallon10@gmail.com</a></p><p>© <span id="year"></span> Estharss Closet. All rights reserved.</p></footer>
-<div class="overlay" id="overlay" onclick="if(event.target===this)closeCart()"><aside class="drawer"><div class="drawer-head"><h2>Your shopping bag</h2><button class="close" onclick="closeCart()">×</button></div><div id="cartitems"></div><div class="total"><span>Subtotal</span><span id="subtotal">₦0</span></div><button class="checkout" onclick="checkout()">ORDER VIA WHATSAPP</button><p class="note">Demo setup: add your WhatsApp number in the setup instructions before accepting orders. Prices and products shown are placeholders.</p></aside></div>
-<script>
-const products=[
-{id:1,name:"Rosé Day Dress",cat:"Clothing",price:18500,desc:"A pretty everyday statement.",img:"https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=700&q=85",tag:"BESTSELLER"},
-{id:2,name:"Everyday Chic Bag",cat:"Bags",price:22000,desc:"Your new favourite plus-one.",img:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=85",tag:"LOVED"},
-{id:3,name:"Blush Heels",cat:"Shoes",price:26000,desc:"A little lift, a lot of charm.",img:"https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=85",tag:"NEW"},
-{id:4,name:"Glow Girl Set",cat:"Beauty",price:12500,desc:"A sweet self-care moment.",img:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=85",tag:"FAVOURITE"},
-{id:5,name:"Pearl Details",cat:"Accessories",price:8500,desc:"The finishing touch.",img:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=700&q=85",tag:"PRETTY"},
-{id:6,name:"Soft Bloom Perfume",cat:"Perfume",price:16000,desc:"A lovely scent for every day.",img:"https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=700&q=85",tag:"NEW"},
-{id:7,name:"Weekend Outfit",cat:"Clothing",price:19500,desc:"Easy, polished and comfortable.",img:"https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=85",tag:"EDIT"},
-{id:8,name:"Mini Shoulder Bag",cat:"Bags",price:17500,desc:"Small bag, big energy.",img:"https://images.unsplash.com/photo-156 longplaceholder",tag:"CUTE"}
-];
-products[7].img="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=700&q=85";
-let active="All",cart=JSON.parse(localStorage.getItem("estharssCart")||"{}");
-const money=n=>"₦"+Number(n).toLocaleString("en-NG");
-function choose(c){active=c;document.querySelectorAll(".filter").forEach(b=>b.classList.toggle("active",b.textContent===c));document.querySelector("#shop").scrollIntoView({behavior:"smooth"});render()}
-function render(){let q=document.querySelector("#search").value.toLowerCase();let list=products.filter(p=>(active==="All"||p.cat===active)&&(p.name+" "+p.cat+" "+p.desc).toLowerCase().includes(q));document.querySelector("#products").innerHTML=list.map(p=>`<article class="product"><span class="tag">${p.tag}</span><img src="${p.img}" alt="${p.name}"><h3>${p.name}</h3><div class="desc">${p.desc}</div><div class="price">${money(p.price)}</div><button class="add" onclick="add(${p.id})">Add to bag +</button></article>`).join("")||'<p>No products found. Try another search.</p>'}
-function add(id){cart[id]=(cart[id]||0)+1;save();openCart()}
-function save(){localStorage.setItem("estharssCart",JSON.stringify(cart));document.querySelector("#count").textContent=Object.values(cart).reduce((a,b)=>a+b,0);renderCart()}
-function renderCart(){let entries=Object.entries(cart).filter(([id,n])=>n>0);document.querySelector("#cartitems").innerHTML=entries.length?entries.map(([id,n])=>{let p=products.find(x=>x.id==id);return `<div class="cartline"><img src="${p.img}" alt=""><div style="flex:1"><strong>${p.name}</strong><p class="note">${money(p.price)} each</p><div class="qty"><button onclick="change(${id},-1)">−</button>${n}<button onclick="change(${id},1)">+</button></div></div></div>`}).join(""):'<div class="empty">Your bag is waiting for something lovely ♡</div>';let sum=entries.reduce((s,[id,n])=>s+products.find(p=>p.id==id).price*n,0);document.querySelector("#subtotal").textContent=money(sum)}
-function change(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];save()}
-function openCart(){document.querySelector("#overlay").classList.add("show");renderCart()}function closeCart(){document.querySelector("#overlay").classList.remove("show")}
-function checkout(){let lines=Object.entries(cart).filter(([id,n])=>n>0).map(([id,n])=>{let p=products.find(x=>x.id==id);return `${p.name} x${n} — ${money(p.price*n)}`});if(!lines.length){alert("Your bag is empty!");return}let total=Object.entries(cart).reduce((s,[id,n])=>s+products.find(p=>p.id==id).price*n,0);let msg=encodeURIComponent("Hello Estharss Closet! I'd like to order:\n"+lines.join("\n")+"\nSubtotal: "+money(total)+"\nPlease confirm availability and delivery.");let phone="2348131361701";if(!phone){alert("Before taking live orders, add your WhatsApp number to the phone variable in index.html (international format, digits only).");return}window.open("https://wa.me/"+phone+"?text="+msg,"_blank")}
-document.querySelector("#year").textContent=new Date().getFullYear();save();render();
-</script>
-</body></html>
+  <div class="announcement">A LITTLE PRETTY, A LOT OF STYLE · WELCOME TO ESTHARSS CLOSET</div>
+  <header>
+    <div class="nav">
+      <a class="logo" href="#home">Estharss Closet<small>FASHION · BEAUTY · MORE</small></a>
+      <nav id="mainNav">
+        <a href="#home">Home</a><a href="#categories">Categories</a><a href="#shop">Shop all</a><a href="#about">Our story</a>
+      </nav>
+      <div class="actions">
+        <button class="iconbtn" onclick="openCart()" aria-label="Open shopping bag">♡ Bag <span id="count">0</span></button>
+        <button class="menu" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">The pretty things edit</span>
+          <h1>Dress like<br>you mean it.</h1>
+          <p>Lovely fashion, beautiful details and feel-good finds. Discover pieces that make every day feel a little more special.</p>
+          <a class="primary" href="#shop">Explore the collection <span>→</span></a>
+        </div>
+        <div class="hero-art" role="img" aria-label="Fashion editorial photograph"></div>
+      </div>
+    </section>
+
+    <div class="benefits">
+      <div class="benefit"><strong>Lovely finds</strong>Carefully selected style pieces</div>
+      <div class="benefit"><strong>Easy ordering</strong>Place your order through WhatsApp</div>
+      <div class="benefit"><strong>Made for you</strong>A little style for every occasion</div>
+    </div>
+
+    <section class="section" id="categories">
+      <div class="section-head"><span class="kicker">Find your favourite</span><h2>Shop by category</h2><p>A little something for every version of you.</p></div>
+      <div class="categories">
+        <button class="cat" onclick="choose('Clothing')"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=500&q=80" alt="Clothing">Clothing</button>
+        <button class="cat" onclick="choose('Bags')"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=80" alt="Bags">Bags</button>
+        <button class="cat" onclick="choose('Shoes')"><img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=500&q=80" alt="Shoes">Shoes</button>
+        <button class="cat" onclick="choose('Beauty')"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=500&q=80" alt="Beauty products">Beauty</button>
+        <button class="cat" onclick="choose('Accessories')"><img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=500&q=80" alt="Accessories">Accessories</button>
+        <button class="cat" onclick="choose('Perfume')"><img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=500&q=80" alt="Perfume">Perfume</button>
+      </div>
+    </section>
+
+    <section class="section" id="shop">
+      <div class="section-head"><span class="kicker">Curated for you</span><h2>The closet edit</h2><p>Explore the collection and add your favourites to your bag.</p></div>
+      <div class="toolbar">
+        <div class="filters" id="filters">
+          <button class="filter active" onclick="choose('All')">All</button>
+          <button class="filter" onclick="choose('Clothing')">Clothing</button>
+          <button class="filter" onclick="choose('Bags')">Bags</button>
+          <button class="filter" onclick="choose('Shoes')">Shoes</button>
+          <button class="filter" onclick="choose('Beauty')">Beauty</button>
+          <button class="filter" onclick="choose('Accessories')">Accessories</button>
+          <button class="filter" onclick="choose('Perfume')">Perfume</button>
+        </div>
+        <input class="search" id="search" placeholder="Search the closet…" aria-label="Search products" oninput="render()">
+      </div>
+      <div class="products" id="products"></div>
+    </section>
+
+    <section class="story" id="about">
+      <span class="kicker">A little about us</span>
+      <h2>Pretty looks good on you.</h2>
+      <p>Welcome to Estharss Closet — your little corner for fashion, beauty and lovely extras. We believe personal style should feel fun, effortless and completely yours. Thank you for being here.</p>
+      <a class="primary" href="#shop">Find your next favourite →</a>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo" href="#home">Estharss Closet</a>
+    <p>Fashion · Beauty · More<br>For orders and enquiries, use the WhatsApp order button or email us at<br><a href="mailto:jamesshallon10@gmail.com">jamesshallon10@gmail.com</a></p>
+    <p>© <span id="year"></span> Estharss Closet. All rights reserved.</p>
+  </footer>
+
+  <div class="overlay" id="overlay" onclick="if(event.target===this)closeCart()">
+    <aside class="drawer" aria-label="Shopping bag">
+      <div class="drawer-head"><h2>Your shopping bag</h2><button class="close" onclick="closeCart()" aria-label="Close bag">×</button></div>
+      <div id="cartitems"></div>
+      <div class="total"><span>Subtotal</span><span id="subtotal">₦0</span></div>
+      <button class="checkout" onclick="checkout()">ORDER VIA WHATSAPP</button>
+      <p class="note">Delivery fees, availability and final order details will be confirmed with you on WhatsApp.</p>
+    </aside>
+  </div>
+
+  <script>
+    // EDIT THIS LIST to add your real products, photos and correct prices.
+    const products = [
+      {id:1,name:"Rosé Day Dress",cat:"Clothing",price:18500,desc:"A pretty everyday statement.",img:"https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=700&q=85",tag:"BESTSELLER"},
+      {id:2,name:"Everyday Chic Bag",cat:"Bags",price:22000,desc:"Your new favourite plus-one.",img:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=85",tag:"LOVED"},
+      {id:3,name:"Blush Heels",cat:"Shoes",price:26000,desc:"A little lift, a lot of charm.",img:"https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=85",tag:"NEW"},
+      {id:4,name:"Glow Girl Set",cat:"Beauty",price:12500,desc:"A sweet self-care moment.",img:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=85",tag:"FAVOURITE"},
+      {id:5,name:"Pearl Details",cat:"Accessories",price:8500,desc:"The finishing touch.",img:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=700&q=85",tag:"PRETTY"},
+      {id:6,name:"Soft Bloom Perfume",cat:"Perfume",price:16000,desc:"A lovely scent for every day.",img:"https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=700&q=85",tag:"NEW"},
+      {id:7,name:"Weekend Outfit",cat:"Clothing",price:19500,desc:"Easy, polished and comfortable.",img:"https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=85",tag:"THE EDIT"},
+      {id:8,name:"Mini Shoulder Bag",cat:"Bags",price:17500,desc:"Small bag, big energy.",img:"https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=700&q=85",tag:"CUTE"}
+    ];
+
+    // This is the WhatsApp number already configured on your current website.
+    // Confirm it is the correct shop number before sharing the site with customers.
+    const WHATSAPP_NUMBER = "2348131361701";
+
+    const money = n => "₦" + Number(n).toLocaleString("en-NG");
+    let active = "All";
+    let cart = {};
+    try { cart = JSON.parse(localStorage.getItem("estharssCart") || "{}") || {}; } catch(e) { cart = {}; }
+
+    function toggleMenu(){
+      const nav = document.getElementById("mainNav");
+      nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+    }
+    function choose(category){
+      active = category;
+      document.querySelectorAll(".filter").forEach(b => b.classList.toggle("active", b.textContent.trim() === category));
+      document.getElementById("shop").scrollIntoView({behavior:"smooth"});
+      render();
+    }
+    function render(){
+      const q = document.getElementById("search").value.toLowerCase().trim();
+      const list = products.filter(p => (active === "All" || p.cat === active) && (p.name + " " + p.cat + " " + p.desc).toLowerCase().includes(q));
+      document.getElementById("products").innerHTML = list.length ? list.map(p => `
+        <article class="product">
+          <span class="tag">${p.tag}</span>
+          <img src="${p.img}" alt="${p.name}" loading="lazy">
+          <h3>${p.name}</h3><div class="desc">${p.desc}</div>
+          <div class="price">${money(p.price)}</div>
+          <button class="add" onclick="add(${p.id})">Add to bag +</button>
+        </article>`).join("") : '<p class="empty-results">No products found. Try another search.</p>';
+    }
+    function add(id){cart[id]=(cart[id]||0)+1;save();openCart();}
+    function save(){
+      localStorage.setItem("estharssCart",JSON.stringify(cart));
+      document.getElementById("count").textContent = Object.values(cart).reduce((a,b)=>a+b,0);
+      renderCart();
+    }
+    function renderCart(){
+      const entries = Object.entries(cart).filter(([id,n]) => n > 0);
+      document.getElementById("cartitems").innerHTML = entries.length ? entries.map(([id,n]) => {
+        const p = products.find(x => x.id == id);
+        return `<div class="cartline"><img src="${p.img}" alt=""><div style="flex:1"><strong>${p.name}</strong><p class="note">${money(p.price)} each</p><div class="qty"><button onclick="change(${id},-1)" aria-label="Remove one">−</button>${n}<button onclick="change(${id},1)" aria-label="Add one">+</button></div></div></div>`;
+      }).join("") : '<div class="empty">Your bag is waiting for something lovely ♡</div>';
+      const sum = entries.reduce((s,[id,n]) => s + products.find(p => p.id == id).price*n,0);
+      document.getElementById("subtotal").textContent = money(sum);
+    }
+    function change(id,delta){cart[id]=(cart[id]||0)+delta;if(cart[id]<=0)delete cart[id];save();}
+    function openCart(){document.getElementById("overlay").classList.add("show");renderCart();}
+    function closeCart(){document.getElementById("overlay").classList.remove("show");}
+    function checkout(){
+      const entries = Object.entries(cart).filter(([id,n])=>n>0);
+      if(!entries.length){alert("Your bag is empty!");return;}
+      const lines = entries.map(([id,n])=>{const p=products.find(x=>x.id==id);return `${p.name} x${n} — ${money(p.price*n)}`;});
+      const total = entries.reduce((s,[id,n])=>s+products.find(p=>p.id==id).price*n,0);
+      const message = encodeURIComponent("Hello Estharss Closet! I'd like to place an order:\n"+lines.join("\n")+"\nSubtotal: "+money(total)+"\nPlease confirm availability and delivery details.");
+      window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+message,"_blank");
+    }
+    document.getElementById("year").textContent = new Date().getFullYear();
+    save();
+    render();
+  </script>
+</body>
+</html>
