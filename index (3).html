@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8e6ed">
+<title>Estharss Closet — Your Style, Your Rules</title>
+<meta name="description" content="Shop cute outfits, accessories, shoes, bags and everyday finds at Estharss Closet.">
+<style>
+:root{--pink:#f4d6e3;--pink2:#eab8ce;--cream:#fffaf8;--ink:#2e2428;--muted:#78676d;--wine:#7b3656;--line:#eadce2;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+a{color:inherit}
+button,input{font:inherit}
+button{cursor:pointer}
+header{position:sticky;top:0;z-index:10;background:rgba(255,250,248,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topnote{text-align:center;background:var(--wine);color:white;padding:8px;font-size:12px;letter-spacing:.08em}
+.nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:17px 24px;gap:15px}
+.brand{font-family:Georgia,serif;font-size:25px;font-weight:bold;letter-spacing:.04em;text-decoration:none}
+.brand span{color:var(--wine)}
+.navlinks{display:flex;gap:22px;align-items:center}
+.navlinks a{text-decoration:none;font-size:14px}
+.navlinks a:hover{color:var(--wine)}
+.cartbtn{border:1px solid var(--wine);border-radius:30px;padding:10px 15px;background:transparent;color:var(--wine);font-weight:bold}
+.hero{max-width:1200px;margin:26px auto;padding:0 24px}
+.hero-wrap{border-radius:22px;overflow:hidden;min-height:400px;display:grid;grid-template-columns:1.05fr .95fr;background:#f5dce6}
+.hero-copy{padding:55px 46px;display:flex;flex-direction:column;justify-content:center}
+.eyebrow{color:var(--wine);text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:bold}
+.hero h1{font-family:Georgia,serif;font-size:clamp(38px,5vw,64px);line-height:1.02;margin:15px 0}
+.hero p{font-size:17px;line-height:1.6;color:#57454b;max-width:450px}
+.cta{display:inline-block;background:var(--wine);color:white;text-decoration:none;border:0;border-radius:30px;padding:14px 22px;margin-top:14px;font-weight:bold;width:max-content}
+.hero-img{background-image:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=85');background-position:center;background-size:cover;min-height:350px}
+.section{max-width:1200px;margin:46px auto;padding:0 24px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:20px}
+.section h2{font-family:Georgia,serif;font-size:32px;margin:0}
+.section-head p{margin:8px 0 0;color:var(--muted)}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.search{flex:1;min-width:210px;padding:12px 15px;border:1px solid var(--line);border-radius:25px;background:white}
+.filter{border:1px solid var(--line);border-radius:25px;background:white;padding:10px 14px;color:var(--ink)}
+.filter.active{background:var(--wine);color:white;border-color:var(--wine)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:white;border-radius:16px;overflow:hidden;border:1px solid #f0e5ea;box-shadow:0 5px 18px rgba(75,36,54,.04)}
+.product-img{height:245px;background:#f2e7eb center/cover no-repeat;position:relative}
+.tag{position:absolute;top:12px;left:12px;background:#fff8fb;border-radius:18px;padding:6px 9px;font-size:11px;color:var(--wine);font-weight:bold}
+.card-body{padding:14px}
+.card h3{font-size:15px;margin:0 0 7px}
+.price{font-weight:bold;color:var(--wine)}
+.card small{color:var(--muted);display:block;margin:8px 0 12px}
+.add{width:100%;border:1px solid var(--wine);background:white;color:var(--wine);border-radius:25px;padding:10px;font-weight:bold}
+.add:hover{background:var(--wine);color:white}
+.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.cat{border-radius:15px;min-height:150px;display:flex;align-items:end;padding:20px;color:white;text-decoration:none;font-family:Georgia,serif;font-size:23px;background-size:cover;background-position:center;overflow:hidden;position:relative}
+.cat:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(38,15,27,.55),transparent 75%)}
+.cat span{position:relative}
+.info-strip{background:#f7e9ef;padding:32px 24px}
+.info-inner{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center}
+.info-inner h3{margin:0 0 8px;font-size:15px}
+.info-inner p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+footer{background:#2d2228;color:#fff;padding:36px 24px}
+.footer-inner{max-width:1200px;margin:auto;display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}
+footer p{color:#e4cfd8;line-height:1.6;font-size:14px}
+footer a{color:#ffe4ef}
+.modal{position:fixed;inset:0;background:rgba(30,15,22,.45);z-index:20;display:none;justify-content:flex-end}
+.modal.open{display:flex}
+.drawer{width:min(420px,100%);background:#fff;height:100%;padding:24px;overflow:auto}
+.drawer-head{display:flex;justify-content:space-between;align-items:center}
+.drawer-head h2{font-family:Georgia,serif}
+.close{border:0;background:#f7e9ef;border-radius:50%;width:38px;height:38px;font-size:20px}
+.cartline{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:14px 0;gap:10px}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{border:1px solid var(--line);background:white;border-radius:6px;width:25px;height:25px}
+.total{font-size:18px;font-weight:bold;display:flex;justify-content:space-between;padding:20px 0}
+.checkout{width:100%;border:0;background:#16894b;color:white;border-radius:25px;padding:14px;font-weight:bold}
+.empty{text-align:center;padding:30px;color:var(--muted)}
+.notice{text-align:center;color:var(--muted);font-size:12px;margin-top:16px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.categories{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.nav{padding:14px 16px}.navlinks{gap:12px}.navlinks a:not(:last-child){display:none}.brand{font-size:21px}.hero{padding:0 14px;margin:14px auto}.hero-wrap{grid-template-columns:1fr}.hero-copy{padding:35px 25px}.hero-img{min-height:240px}.section{padding:0 14px;margin:35px auto}.grid{grid-template-columns:repeat(2,1fr);gap:12px}.product-img{height:180px}.card-body{padding:11px}.categories{grid-template-columns:repeat(2,1fr)}.cat{min-height:120px;font-size:20px}.info-inner{grid-template-columns:1fr;gap:22px}}
+</style>
+</head>
+<body>
+<header>
+<div class="topnote">A LITTLE STYLE, A LOT OF YOU ✨</div>
+<div class="nav">
+<a class="brand" href="#" aria-label="Estharss Closet home">ESTHARSS <span>CLOSET</span></a>
+<nav class="navlinks" aria-label="Main navigation"><a href="#shop">Shop</a><a href="#categories">Categories</a><a href="#contact">Contact</a></nav>
+<button class="cartbtn" id="openCart" aria-label="Open shopping bag">Bag (<span id="cartCount">0</span>)</button>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="hero-wrap">
+<div class="hero-copy">
+<div class="eyebrow">Your style, your rules</div>
+<h1>Find your next<br>favourite thing.</h1>
+<p>Outfits, accessories, shoes and little everyday finds to make your style feel like <em>you</em>.</p>
+<a class="cta" href="#shop">Shop the collection →</a>
+</div>
+<div class="hero-img" role="img" aria-label="Fashion editorial style clothing photo"></div>
+</div>
+</section>
+<section class="section" id="categories">
+<div class="section-head"><div><h2>Shop by vibe</h2><p>Choose a category and find your kind of cute.</p></div></div>
+<div class="categories">
+<a class="cat" style="background-image:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=80')" href="#shop" data-filter="Clothing"><span>Clothing</span></a>
+<a class="cat" style="background-image:url('https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=600&q=80')" href="#shop" data-filter="Accessories"><span>Accessories</span></a>
+<a class="cat" style="background-image:url('https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=600&q=80')" href="#shop" data-filter="Shoes"><span>Shoes</span></a>
+<a class="cat" style="background-image:url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80')" href="#shop" data-filter="Bags"><span>Bags & more</span></a>
+</div>
+</section>
+<section class="section" id="shop">
+<div class="section-head"><div><h2>The closet edit</h2><p>Browse our picks. Add your favourites to your bag.</p></div></div>
+<div class="toolbar" id="filters" aria-label="Filter products">
+<button class="filter active" data-category="All">All items</button>
+<button class="filter" data-category="Clothing">Clothing</button>
+<button class="filter" data-category="Accessories">Accessories</button>
+<button class="filter" data-category="Shoes">Shoes</button>
+<button class="filter" data-category="Bags">Bags</button>
+<button class="filter" data-category="Lifestyle">Lifestyle</button>
+<input class="search" id="search" type="search" placeholder="Search the closet..." aria-label="Search products">
+</div>
+<div class="grid" id="products" aria-live="polite"></div>
+<p class="notice">Product images are illustrative. Ask us to confirm availability, sizes and colours before ordering.</p>
+</section>
+<section class="info-strip">
+<div class="info-inner">
+<div><h3>Style made easy</h3><p>Find fun, wearable pieces for your everyday wardrobe.</p></div>
+<div><h3>Order via WhatsApp</h3><p>Send your bag to us and confirm details before payment.</p></div>
+<div><h3>Shopping with care</h3><p>Ask us about sizes, delivery and return information before you place an order.</p></div>
+</div>
+</section>
+</main>
+<footer id="contact">
+<div class="footer-inner">
+<div><div class="brand" style="color:white">ESTHARSS <span style="color:#f3bfd5">CLOSET</span></div><p>Your Style, Your Rules 💕<br>Fashion, accessories & cute finds.</p></div>
+<div><h3>Contact & Orders</h3><p>Phone: <a href="tel:+2348131361701">081-31-36-1701</a><br>WhatsApp: <a href="https://wa.me/2348131361701" target="_blank" rel="noopener">Chat to order</a><br>Email: <span id="emailText">Email address to be added</span></p></div>
+</div>
+</footer>
+<div class="modal" id="cartModal" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+<div class="drawer">
+<div class="drawer-head"><h2 id="cartTitle">Your shopping bag</h2><button class="close" id="closeCart" aria-label="Close bag">×</button></div>
+<div id="cartItems"></div>
+<div class="total"><span>Total</span><span id="cartTotal">₦0</span></div>
+<button class="checkout" id="checkout">Order on WhatsApp</button>
+<p class="notice">Your WhatsApp message will include your chosen items and total. We will confirm stock and delivery details.</p>
+</div>
+</div>
+<script>
+const products=[
+{name:"Oversized Graphic Tee",category:"Clothing",price:12500,image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80",tag:"Everyday"},
+{name:"Ribbed Crop Top",category:"Clothing",price:8500,image:"https://images.unsplash.com/photo-1564257577-6a9a9a9a5c4b?auto=format&fit=crop&w=700&q=80",tag:"Cute fit"},
+{name:"Basic Tank Top",category:"Clothing",price:6500,image:"https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80",tag:"Essential"},
+{name:"Soft Knit Cardigan",category:"Clothing",price:18500,image:"https://images.unsplash.com/photo-1576566588028-4147f3846f27?auto=format&fit=crop&w=700&q=80",tag:"Cozy"},
+{name:"Button-Up Shirt",category:"Clothing",price:15500,image:"https://images.unsplash.com/photo-1598554747436-c9293d6a7c2b?auto=format&fit=crop&w=700&q=80",tag:"Classic"},
+{name:"Pleated Mini Skirt",category:"Clothing",price:14500,image:"https://images.unsplash.com/photo-1583496661160-f0409e92791a?auto=format&fit=crop&w=700&q=80",tag:"Trending"},
+{name:"Wide-Leg Jeans",category:"Clothing",price:24500,image:"https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=700&q=80",tag:"Denim"},
+{name:"Cargo Trousers",category:"Clothing",price:22000,image:"https://images.unsplash.com/photo-1517438476312-10d79c077509?auto=format&fit=crop&w=700&q=80",tag:"Streetwear"},
+{name:"Denim Jacket",category:"Clothing",price:28500,image:"https://images.unsplash.com/photo-1543076447-215ad6ba9c48?auto=format&fit=crop&w=700&q=80",tag:"Layer up"},
+{name:"Hoodie",category:"Clothing",price:23000,image:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=700&q=80",tag:"Comfy"},
+{name:"Casual Two-Piece Set",category:"Clothing",price:27000,image:"https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=700&q=80",tag:"Set"},
+{name:"Sundress",category:"Clothing",price:19500,image:"https://images.unsplash.com/photo-1495385794356-15371f348c31?auto=format&fit=crop&w=700&q=80",tag:"Weekend"},
+{name:"Shorts",category:"Clothing",price:12000,image:"https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=700&q=80",tag:"Sunny"},
+{name:"Simple Leggings",category:"Clothing",price:10500,image:"https://images.unsplash.com/photo-1506629905607-d6a8f3d2a7b8?auto=format&fit=crop&w=700&q=80",tag:"Comfort"},
+{name:"Charm Bracelet",category:"Accessories",price:6500,image:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=700&q=80",tag:"Cute detail"},
+{name:"Gold-Tone Hoop Earrings",category:"Accessories",price:4500,image:"https://images.unsplash.com/photo-1611652022419-460bfbe43d?auto=format&fit=crop&w=700&q=80",tag:"Popular"},
+{name:"Layered Necklace",category:"Accessories",price:7000,image:"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=80",tag:"Layer it"},
+{name:"Sunglasses",category:"Accessories",price:7500,image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=700&q=80",tag:"Sunny days"},
+{name:"Hair Bow Pair",category:"Accessories",price:3000,image:"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=80",tag:"Sweet"},
+{name:"Scrunchie Set (3)",category:"Accessories",price:3500,image:"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=80",tag:"Set of 3"},
+{name:"Claw Clip",category:"Accessories",price:2500,image:"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=80",tag:"Hair"},
+{name:"Fashion Ring Set",category:"Accessories",price:5500,image:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=700&q=80",tag:"Stackable"},
+{name:"Anklet",category:"Accessories",price:4000,image:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=700&q=80",tag:"Little detail"},
+{name:"Canvas Sneakers",category:"Shoes",price:22000,image:"https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=700&q=80",tag:"Everyday"},
+{name:"Chunky Sneakers",category:"Shoes",price:32000,image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80",tag:"Street style"},
+{name:"Ballet Flats",category:"Shoes",price:20500,image:"https://images.unsplash.com/photo-1560343090-f0409e92791a?auto=format&fit=crop&w=700&q=80",tag:"Easy style"},
+{name:"Slide Sandals",category:"Shoes",price:12500,image:"https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=80",tag:"Chill"},
+{name:"Low-Heel Sandals",category:"Shoes",price:18500,image:"https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=80",tag:"Dress up"},
+{name:"Mini Shoulder Bag",category:"Bags",price:18500,image:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=80",tag:"Going out"},
+{name:"Canvas Tote",category:"Bags",price:9500,image:"https://images.unsplash.com/photo-1590874103328-eac38a6a5c3b?auto=format&fit=crop&w=700&q=80",tag:"Carry all"},
+{name:"Backpack",category:"Bags",price:24000,image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80",tag:"School day"},
+{name:"Mini Wallet",category:"Bags",price:9000,image:"https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=700&q=80",tag:"Small but useful"},
+{name:"Phone Case",category:"Lifestyle",price:5500,image:"https://images.unsplash.com/photo-1603313011102-3a2b5e1d0b3f?auto=format&fit=crop&w=700&q=80",tag:"Little find"},
+{name:"Journal & Pen Set",category:"Lifestyle",price:8500,image:"https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=700&q=80",tag:"Desk vibes"},
+{name:"Reusable Water Bottle",category:"Lifestyle",price:7000,image:"https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=700&q=80",tag:"Daily essential"},
+{name:"Cute Keychain",category:"Lifestyle",price:2500,image:"https://images.unsplash.com/photo-1611652022419-460bfbe1220a?auto=format&fit=crop&w=700&q=80",tag:"Bag charm"},
+{name:"Compact Makeup Pouch",category:"Lifestyle",price:7500,image:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=80",tag:"Organize"},
+{name:"Decorative Room Lights",category:"Lifestyle",price:11000,image:"https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=700&q=80",tag:"Room glow"}
+];
+let activeCategory="All", bag={};
+const fmt=n=>"₦"+n.toLocaleString("en-NG");
+function renderProducts(){
+ const term=document.getElementById("search").value.toLowerCase();
+ const shown=products.filter(p=>(activeCategory==="All"||p.category===activeCategory)&&p.name.toLowerCase().includes(term));
+ document.getElementById("products").innerHTML=shown.map(p=>`<article class="card">
+ <div class="product-img" style="background-image:url('${p.image}')" role="img" aria-label="${p.name} product photo"><span class="tag">${p.tag}</span></div>
+ <div class="card-body"><h3>${p.name}</h3><div class="price">${fmt(p.price)}</div><small>${p.category}</small><button class="add" data-add="${p.name}">Add to bag</button></div></article>`).join("")||"<p>No items found. Try a different search.</p>";
+}
+function renderCart(){
+ const entries=Object.entries(bag);
+ document.getElementById("cartCount").textContent=entries.reduce((s,[,q])=>s+q,0);
+ document.getElementById("cartItems").innerHTML=entries.length?entries.map(([name,q])=>{const p=products.find(x=>x.name===name);return `<div class="cartline"><div><strong>${name}</strong><br><small>${fmt(p.price)} each</small></div><div class="qty"><button data-dec="${name}" aria-label="Remove one ${name}">−</button><span>${q}</span><button data-inc="${name}" aria-label="Add one ${name}">+</button></div></div>`}).join(""):'<div class="empty">Your bag is empty for now 🛍️</div>';
+ const total=entries.reduce((s,[name,q])=>s+products.find(p=>p.name===name).price*q,0);
+ document.getElementById("cartTotal").textContent=fmt(total);
+}
+document.getElementById("filters").addEventListener("click",e=>{const b=e.target.closest("[data-category]");if(!b)return;activeCategory=b.dataset.category;document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b));renderProducts()});
+document.querySelectorAll(".cat").forEach(a=>a.addEventListener("click",()=>{activeCategory=a.dataset.filter;document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x.dataset.category===activeCategory));renderProducts()}));
+document.getElementById("search").addEventListener("input",renderProducts);
+document.getElementById("products").addEventListener("click",e=>{const b=e.target.closest("[data-add]");if(b){bag[b.dataset.add]=(bag[b.dataset.add]||0)+1;renderCart();b.textContent="Added ✓";setTimeout(()=>b.textContent="Add to bag",800)}});
+document.getElementById("cartItems").addEventListener("click",e=>{const inc=e.target.closest("[data-inc]"),dec=e.target.closest("[data-dec]");if(inc)bag[inc.dataset.inc]++;if(dec){bag[dec.dataset.dec]--;if(!bag[dec.dataset.dec])delete bag[dec.dataset.dec]}renderCart()});
+const modal=document.getElementById("cartModal");
+document.getElementById("openCart").onclick=()=>modal.classList.add("open");
+document.getElementById("closeCart").onclick=()=>modal.classList.remove("open");
+modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("open")});
+document.getElementById("checkout").onclick=()=>{
+ const entries=Object.entries(bag);if(!entries.length){alert("Your bag is empty. Add an item first!");return}
+ const total=entries.reduce((s,[name,q])=>s+products.find(p=>p.name===name).price*q,0);
+ const lines=entries.map(([name,q])=>`${q} x ${name} — ${fmt(products.find(p=>p.name===name).price*q)}`).join("\n");
+ const msg=encodeURIComponent(`Hello Estharss Closet! I'd like to order:\n${lines}\nTotal: ${fmt(total)}\nPlease confirm availability and delivery details.`);
+ window.open("https://wa.me/2348131361701?text="+msg,"_blank","noopener");
+};
+renderProducts();renderCart();
+</script>
+</body>
+</html>
